@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block header %}
+<div class="alert alert-primary" role="alert">
+    <h1>detail page</h1>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% for item in songmodel.pointmodel_set.all %}
+    <div class="alert alert-success" role="alert">
+        <p>点数：{{item.point}}</p>
+        <p>日付：{{item.duedate | date:"o/n/j"}}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

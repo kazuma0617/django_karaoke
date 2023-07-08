@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block header %}
+<div class="alert alert-primary" role="alert">
+    <h1>list page</h1>
+</div>
+<a href="{% url 'songcreate' %}" class="btn btn-secondary" tabindex="-1" role="button" aria-disabled="true">曲の追加</a>
+<a href="{% url 'create2' %}" class="btn btn-secondary" tabindex="-1" role="button" aria-disabled="true">点数の追加</a>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% for object in object_list %}
+    <div class="alert alert-warning" role="alert">
+        <p>曲名：<a href="{% url 'detail' object.pk %}">{{object.title}}</a></p>
+        <a href="{% url 'delete' object.pk %}" class="btn btn-danger" tabindex="-1" role="button" aria-disabled="true">削除画面へ</a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

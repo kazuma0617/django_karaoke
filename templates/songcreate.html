@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block header %}
+<div class="alert alert-primary" role="alert">
+    <h1>song create page</h1>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <form method="POST" enctype="multipart/form-data">{% csrf_token %}
+        <p>title:<input type="text" name="title"></p>
+        <a href="{% url 'list' %}" class="btn btn-secondary" tabindex="-1" role="button" aria-disabled="true">戻る</a>
+        <input type="submit" value="曲の追加">
+    </form>
+</div>
+{% endblock %}
